@@ -61,10 +61,10 @@ export default function Hero() {
       <div className="bg-blob w-[400px] h-[400px] bg-secondary-500/20 dark:bg-secondary-500/10 bottom-[10%] -right-20 animate-pulse-slow" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        
+
         {/* Left Intro Text Column */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,9 +124,9 @@ export default function Hero() {
               <FontAwesomeIcon icon={faBriefcase} className="group-hover:translate-x-0.5 transition-transform" />
               View Portfolio
             </button>
-            
+
             <a
-              href="/resume.pdf"
+              href="/Asri Ibnu Ameer CV New.pdf"
               download
               className="px-8 py-3.5 rounded-full font-semibold text-slate-700 dark:text-slate-200 glass-card-light dark:glass-card-dark hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-800 shadow-sm"
             >
@@ -155,7 +155,7 @@ export default function Hero() {
             {/* Visual background rings */}
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/30 dark:border-secondary-500/30 animate-spin-slow scale-110" />
             <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-primary-500 to-secondary-500 blur-md opacity-20 dark:opacity-30" />
-            
+
             {/* Profile Photo Wrapper */}
             <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-slate-850 shadow-2xl glass-card-light dark:glass-card-dark">
               <img
