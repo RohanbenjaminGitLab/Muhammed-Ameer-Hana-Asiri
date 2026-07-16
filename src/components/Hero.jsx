@@ -82,7 +82,7 @@ export default function Hero() {
           >
             Asri <br />
             <span className="bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
-            Ibnu Ameer 
+              Ibnu Ameer
             </span>
           </motion.h1>
 
@@ -175,7 +175,7 @@ export default function Hero() {
               transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
               className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl glass-card-light dark:glass-card-dark text-xs md:text-sm font-semibold flex items-center gap-2 shadow-lg"
             >
-              🎓 <span className="text-slate-800 dark:text-slate-200">Event Mgr Graduate</span>
+              🎓 <span className="text-slate-800 dark:text-slate-200">Event Management Graduate</span>
             </motion.div>
 
             <motion.div
