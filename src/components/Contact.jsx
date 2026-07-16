@@ -6,7 +6,7 @@ import {
   faMapMarkerAlt,
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faBlogger } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -136,6 +136,12 @@ export default function Contact() {
       href: "https://www.linkedin.com/in/asri-ibnu-ameer-ab567b1ab",
     },
     {
+      icon: faBlogger,
+      label: "Blogspot",
+      val: "https://asriibnuameer.blogspot.com/search/label/Social%20Work",
+      href: "https://asriibnuameer.blogspot.com/search/label/Social%20Work",
+    },
+    {
       icon: faMapMarkerAlt,
       label: "Location",
       val: "Colombo, Sri Lanka",
@@ -193,10 +199,10 @@ export default function Contact() {
                 const CardWrapper = detail.href ? "a" : "div";
                 const wrapperProps = detail.href
                   ? {
-                      href: detail.href,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    }
+                    href: detail.href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
                   : {};
 
                 return (
@@ -217,7 +223,7 @@ export default function Contact() {
                         className="w-5 h-5 text-primary-500 dark:text-secondary-400"
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
                         {detail.label}
                       </span>
@@ -245,12 +251,12 @@ export default function Contact() {
                               ? "noopener noreferrer"
                               : undefined
                           }
-                          className="block text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors mt-0.5"
+                          className="block text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors mt-0.5 break-all"
                         >
                           {detail.val}
                         </a>
                       ) : (
-                        <p className="text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 mt-0.5">
+                        <p className="text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 mt-0.5 break-all">
                           {detail.val}
                         </p>
                       )}
@@ -366,11 +372,10 @@ export default function Contact() {
                 {/* Status Alerts */}
                 {status.type && status.type !== "loading" && (
                   <div
-                    className={`p-4 rounded-xl text-sm border flex items-center gap-2 ${
-                      status.type === "success"
+                    className={`p-4 rounded-xl text-sm border flex items-center gap-2 ${status.type === "success"
                         ? "bg-green-550/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
                         : "bg-red-500/10 dark:bg-red-500/5 text-red-700 dark:text-red-400 border-red-500/20"
-                    }`}
+                      }`}
                   >
                     <span>{status.type === "success" ? "🚀" : "⚠️"}</span>
                     <span>{status.message}</span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faBlogger } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer() {
@@ -56,6 +56,15 @@ export default function Footer() {
               className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-secondary-400 hover:scale-110 transition-all duration-300 shadow-sm"
             >
               <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a
+              href="https://asriibnuameer.blogspot.com/search/label/Social%20Work"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Blogger"
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-secondary-400 hover:scale-110 transition-all duration-300 shadow-sm"
+            >
+              <FontAwesomeIcon icon={faBlogger} />
             </a>
             <a
               href="tel:+94750652541" // Placeholder
