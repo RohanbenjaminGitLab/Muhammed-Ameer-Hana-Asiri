@@ -10,7 +10,6 @@ const navLinks = [
   { id: 'experience', name: 'Experience' },
   { id: 'education', name: 'Education' },
   { id: 'qualifications', name: 'Qualifications' },
-  { id: 'achievements', name: 'Achievements' },
   { id: 'contact', name: 'Contact' }
 ];
 
@@ -83,7 +82,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
           onClick={() => handleLinkClick('hero')} 
           className="cursor-pointer font-bold text-xl md:text-2xl tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
         >
-          <span className="bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Muhammed Ameer</span>
+          <span className="bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Asri ibnu Ameer</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -102,7 +101,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               {activeSection === link.id && (
                 <motion.span
                   layoutId="activeIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary-500 to-secondary-500 rounded-full"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}

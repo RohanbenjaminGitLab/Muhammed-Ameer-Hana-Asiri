@@ -22,8 +22,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           {/* Logo Name & Tagline */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text mb-2">
-              Muhammed Ameer
+            <h3 className="text-xl font-bold bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text mb-2">
+              Asri ibnu Ameer
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
               Event Management Graduate & HR, Media, and Project Coordination Professional.
@@ -42,14 +42,14 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4">
             <a
-              href="mailto:ameerhana99@gmail.com" // Placeholder or easily customizable
+              href="mailto:ameerasri59@gmail.com" // Placeholder or easily customizable
               aria-label="Email"
               className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-secondary-400 hover:scale-110 transition-all duration-300 shadow-sm"
             >
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <a
-              href="https://www.linkedin.com/in/muhammed-ameer-hana-asiri" // Placeholder
+              href="https://www.linkedin.com/in/asri-ibnu-ameer-ab567b1ab" // Placeholder
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -58,7 +58,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
             <a
-              href="tel:+94771234567" // Placeholder
+              href="tel:+94750652541" // Placeholder
               aria-label="Phone"
               className="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-secondary-400 hover:scale-110 transition-all duration-300 shadow-sm"
             >
@@ -71,9 +71,9 @@ export default function Footer() {
 
         {/* Bottom Credits */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-          <p>© {currentYear} Muhammed Ameer Hana Asiri. All rights reserved.</p>
+          <p>© {currentYear}  Asri ibnu Ameer. All rights reserved.</p>
           <p className="font-medium">
-            Designed by <span className="text-primary-600 dark:text-secondary-400">Muhammed Ameer Hana Asiri</span>
+            Designed by <span className="text-primary-600 dark:text-secondary-400">S.RohanBenjamin</span>
           </p>
         </div>
       </div>

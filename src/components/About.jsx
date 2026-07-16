@@ -54,7 +54,7 @@ export default function About() {
             whileInView={{ width: '80px' }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="h-[3px] bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto mt-4 rounded-full"
+            className="h-0.75 bg-linear-to-r from-primary-500 to-secondary-500 mx-auto mt-4 rounded-full"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function About() {
             className="lg:col-span-6 space-y-6 text-slate-650 dark:text-slate-300"
           >
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-              Building Success Through Event Orchestration & Team Leadership
+             Building Success Through Event Management and Team Leadership
             </h3>
             
             <p className="leading-relaxed">
@@ -100,8 +100,8 @@ export default function About() {
               </div>
               <div className="flex gap-2 items-center">
                 <span className="text-primary-500">📧</span>
-                <a href="mailto:ameerhana99@gmail.com" className="text-primary-600 dark:text-secondary-400 hover:underline">
-                  ameerhana99@gmail.com
+                <a href="mailto:ameerasri59@gmail.com" className="text-primary-600 dark:text-secondary-400 hover:underline">
+                   ameerasri59@gmail.com
                 </a>
               </div>
               <div className="flex gap-2 items-center">
@@ -128,7 +128,7 @@ export default function About() {
                 className="glass-card-light dark:glass-card-dark p-6 rounded-3xl relative overflow-hidden transition-all duration-300"
               >
                 {/* Decorative glowing gradient border top */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${h.color}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${h.color}`} />
                 
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 mb-4 font-bold shadow-inner">
                   <FontAwesomeIcon icon={h.icon} className="w-5 h-5 text-primary-500 dark:text-secondary-400" />

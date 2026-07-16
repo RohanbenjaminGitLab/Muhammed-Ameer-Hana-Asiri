@@ -7,7 +7,6 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Qualifications from './components/Qualifications';
 import Leadership from './components/Leadership';
-import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -50,7 +49,6 @@ function App() {
         <Education />
         <Qualifications />
         <Leadership />
-        <Achievements />
         <Contact />
       </main>
       

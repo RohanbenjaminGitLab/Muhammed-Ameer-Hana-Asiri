@@ -57,8 +57,8 @@ export default function Hero() {
       className="min-h-screen relative flex items-center justify-center pt-24 pb-16 overflow-hidden px-6 transition-colors duration-300"
     >
       {/* Dynamic Animated Blobs */}
-      <div className="bg-blob w-[450px] h-[450px] bg-primary-500/20 dark:bg-primary-500/10 top-[10%] -left-20 animate-spin-slow" />
-      <div className="bg-blob w-[400px] h-[400px] bg-secondary-500/20 dark:bg-secondary-500/10 bottom-[10%] -right-20 animate-pulse-slow" />
+      <div className="bg-blob w-112.5 h-112.5 bg-primary-500/20 dark:bg-primary-500/10 top-[10%] -left-20 animate-spin-slow" />
+      <div className="bg-blob w-100 h-100 bg-secondary-500/20 dark:bg-secondary-500/10 bottom-[10%] -right-20 animate-pulse-slow" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
 
@@ -80,9 +80,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-4"
           >
-            Muhammed Ameer <br />
-            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
-              Hana Asiri
+            Asri <br />
+            <span className="bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
+            Ibnu Ameer 
             </span>
           </motion.h1>
 
@@ -119,7 +119,7 @@ export default function Hero() {
           >
             <button
               onClick={() => handleScrollTo('experience')}
-              className="px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+              className="px-8 py-3.5 rounded-full font-semibold text-white bg-linear-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
             >
               <FontAwesomeIcon icon={faBriefcase} className="group-hover:translate-x-0.5 transition-transform" />
               View Portfolio
@@ -154,13 +154,13 @@ export default function Hero() {
           >
             {/* Visual background rings */}
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-500/30 dark:border-secondary-500/30 animate-spin-slow scale-110" />
-            <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-primary-500 to-secondary-500 blur-md opacity-20 dark:opacity-30" />
+            <div className="absolute inset-4 rounded-full bg-linear-to-tr from-primary-500 to-secondary-500 blur-md opacity-20 dark:opacity-30" />
 
             {/* Profile Photo Wrapper */}
             <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-slate-850 shadow-2xl glass-card-light dark:glass-card-dark">
               <img
-                src="/profile.png"
-                alt="Muhammed Ameer Hana Asiri Profile"
+                src="/public/profile 2.jpeg"
+                alt="Asri ibnu Ameer"
                 className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-500"
                 onError={(e) => {
                   e.target.onerror = null;
