@@ -159,7 +159,7 @@ export default function Hero() {
             {/* Profile Photo Wrapper */}
             <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-slate-850 shadow-2xl glass-card-light dark:glass-card-dark">
               <img
-                src="/public/profile 2.jpeg"
+                src="/public/profile.png"
                 alt="Asri ibnu Ameer"
                 className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-500"
                 onError={(e) => {
