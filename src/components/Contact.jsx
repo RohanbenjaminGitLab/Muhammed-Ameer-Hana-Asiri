@@ -79,9 +79,9 @@ export default function Contact() {
         serviceId,
         templateId,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
-          subject: formData.subject || "Portfolio Inquiry",
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject || "Portfolio Inquiry",
           message: formData.message,
         },
         publicKey,
