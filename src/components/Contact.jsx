@@ -113,13 +113,13 @@ export default function Contact() {
     },
     {
       icon: faPhone,
-      label: "Phone (Primary)",
+      label: "Phone (Primary Dialog)",
       val: "+94 750 652 541",
       href: "tel:+94750652541",
     },
     {
       icon: faPhone,
-      label: "Phone (Secondary)",
+      label: "Phone (Secondary Airte)",
       val: "+94 767 620 601",
       href: "tel:+94767620601",
     },
@@ -347,11 +347,10 @@ export default function Contact() {
                 {status.type && status.type !== "loading" && (
                   <div
                     role="alert"
-                    className={`p-3 sm:p-4 rounded-xl text-xs sm:text-sm border flex items-start gap-2 ${
-                      status.type === "success"
+                    className={`p-3 sm:p-4 rounded-xl text-xs sm:text-sm border flex items-start gap-2 ${status.type === "success"
                         ? "bg-green-500/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
                         : "bg-red-500/10 dark:bg-red-500/5 text-red-700 dark:text-red-400 border-red-500/20"
-                    }`}
+                      }`}
                   >
                     <span className="flex-shrink-0 mt-0.5" aria-hidden="true">{status.type === "success" ? "🚀" : "⚠️"}</span>
                     <span>{status.message}</span>
