@@ -113,15 +113,11 @@ export default function Contact() {
     },
     {
       icon: faPhone,
-      label: "Phone (Primary Dialog)",
-      val: "+94 750 652 541",
-      href: "tel:+94750652541",
-    },
-    {
-      icon: faPhone,
-      label: "Phone (Secondary Airte)",
-      val: "+94 767 620 601",
-      href: "tel:+94767620601",
+      label: "Phone",
+      phones: [
+        { val: "+94 750 652 541", href: "tel:+94750652541" },
+        { val: "+94 767 620 601", href: "tel:+94767620601" },
+      ],
     },
     {
       icon: faLinkedin,
@@ -201,36 +197,61 @@ export default function Contact() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={
-                    detail.href ? { x: 5, transition: { duration: 0.2 } } : {}
+                    (detail.href || detail.phones)
+                      ? { x: 5, transition: { duration: 0.2 } }
+                      : {}
                   }
-                  className="flex items-center gap-3 sm:gap-4 glass-card-light dark:glass-card-dark p-3.5 sm:p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm"
+                  style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+                  className="glass-card-light dark:glass-card-dark px-4 py-4 sm:px-5 sm:py-4 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm gap-4"
                 >
-                  {/* Icon */}
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-inner flex-shrink-0">
+                  {/* ── Icon (always vertically centered) ── */}
+                  <div
+                    style={{ flexShrink: 0, alignSelf: "center" }}
+                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 shadow-inner"
+                  >
                     <FontAwesomeIcon
                       icon={detail.icon}
                       className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 dark:text-secondary-400"
                     />
                   </div>
 
-                  {/* Text */}
-                  <div className="min-w-0 flex-1 overflow-hidden">
-                    <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-0.5">
+                  {/* ── Text (label + value/s) ── */}
+                  <div style={{ minWidth: 0, flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    {/* Label */}
+                    <span className="block text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 leading-none">
                       {detail.label}
                     </span>
 
-                    {detail.href ? (
+                    {/* Phone — vertical stack, one number per line */}
+                    {detail.phones ? (
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "100%" }}>
+                        {detail.phones.map((phone, i) => (
+                          <a
+                            key={i}
+                            href={phone.href}
+                            style={{ display: "block" }}
+                            className="text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors leading-snug"
+                          >
+                            {phone.val}
+                          </a>
+                        ))}
+                      </div>
+                    ) : detail.href ? (
                       <a
                         href={detail.href}
                         target={detail.href.startsWith("http") ? "_blank" : undefined}
                         rel={detail.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="block text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors truncate"
+                        style={{ display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "100%" }}
+                        className="text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors"
                         title={detail.val}
                       >
                         {detail.val}
                       </a>
                     ) : (
-                      <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
+                      <p
+                        style={{ margin: 0 }}
+                        className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-snug"
+                      >
                         {detail.val}
                       </p>
                     )}
@@ -238,6 +259,8 @@ export default function Contact() {
                 </motion.div>
               ))}
             </div>
+
+
           </div>
 
           {/* Right Column: Contact Form */}
@@ -348,8 +371,8 @@ export default function Contact() {
                   <div
                     role="alert"
                     className={`p-3 sm:p-4 rounded-xl text-xs sm:text-sm border flex items-start gap-2 ${status.type === "success"
-                        ? "bg-green-500/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
-                        : "bg-red-500/10 dark:bg-red-500/5 text-red-700 dark:text-red-400 border-red-500/20"
+                      ? "bg-green-500/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
+                      : "bg-red-500/10 dark:bg-red-500/5 text-red-700 dark:text-red-400 border-red-500/20"
                       }`}
                   >
                     <span className="flex-shrink-0 mt-0.5" aria-hidden="true">{status.type === "success" ? "🚀" : "⚠️"}</span>
