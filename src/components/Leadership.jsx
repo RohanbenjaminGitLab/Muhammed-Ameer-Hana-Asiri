@@ -9,40 +9,30 @@ const activities = [
     role: "Emergency Volunteer Coordinator",
     icon: faHandHoldingHeart,
     color: "from-blue-500 to-indigo-500",
-    impact: "Directed relief logistics, packaging operations, and mobilization of 40+ local volunteers to deliver food kits, medical supplies, and basic necessities to 500+ vulnerable families during regional emergencies.",
-    tag: "Humanitarian Aid"
   },
   {
     org: "Divisional Federation of Youth Clubs",
     role: "Divisional Cultural Secretary",
     icon: faMasksTheater,
     color: "from-purple-500 to-pink-500",
-    impact: "Pioneered and managed the Divisional Cultural Festival, coordinating stages, volunteer hosts, and artist sponsorships, resulting in a landmark cultural forum that welcomed 1,000+ local spectators and 100+ performers.",
-    tag: "Cultural Promotion"
   },
   {
     org: "Maaz Youth Club",
     role: "Executive Club Secretary",
     icon: faPeopleGroup,
     color: "from-indigo-500 to-secondary-500",
-    impact: "Administered executive records, chaired operations meetings, and coordinated 8+ volunteer programs including city cleanups, health awareness walks, and school textbook donation drives.",
-    tag: "Community Development"
   },
   {
     org: "Values4All Organization",
     role: "District Facilitator & Youth Trainer",
     icon: faCompass,
     color: "from-cyan-500 to-blue-500",
-    impact: "Delivered 20+ customized workshops on character-building, conflict management, and civic engagement, providing 300+ students with critical soft skills and emotional intelligence training.",
-    tag: "Education & Ethics"
   },
   {
     org: "Iconic Youths",
     role: "Divisional Coordinator",
     icon: faCircleNodes,
     color: "from-emerald-500 to-teal-500",
-    impact: "Guided divisional youth engagement, designing peer-to-peer workshops on digital media literacy, civic responsibility, and leadership paths that reached over 200+ local teens.",
-    tag: "Youth Empowerment"
   }
 ];
 
