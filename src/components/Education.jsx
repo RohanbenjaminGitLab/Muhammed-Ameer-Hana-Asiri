@@ -12,7 +12,7 @@ const educationList = [
     color: "from-cyan-500 to-blue-500"
   },
   {
-    degree: "Completed School level (A/L)",
+    degree: "G.C.E Advanced Level",
     institution: "Ak/Addalaichenai National School ",
     period: "2019",
     icon: faBook,
