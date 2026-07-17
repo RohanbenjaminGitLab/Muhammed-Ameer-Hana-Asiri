@@ -23,12 +23,7 @@ const experiences = [
     period: "2024 - Present",
     icon: faNewspaper,
     color: "from-blue-500 to-indigo-500",
-    desc: "Direct print/digital publication operations, supervise editorial layouts, edit key cover pieces, and coordinate content distributions.",
-    bullets: [
-      "Managed an editorial and design team of 15+ writers and graphic designers.",
-      "Successfully launched the digital subscription app, boosting overall readership by 35%.",
-      "Oversaw publication timelines, ensuring 100% on-time delivery across issues."
-    ]
+
   },
   {
     role: "Assistant News Manager",
@@ -36,12 +31,7 @@ const experiences = [
     period: "2023 - 2024",
     icon: faBullhorn,
     color: "from-blue-500 to-cyan-500",
-    desc: "Managed daily news writing/editing desks, supervised reporting teams, and verified factual consistency of publication pipelines.",
-    bullets: [
-      "Streamlined desk collaboration, reducing publish time for breaking news by 20%.",
-      "Mentored junior journalists in media ethics and SEO-friendly copywriting.",
-      "Coordinated with broadcast managers to align print news with digital TV feeds."
-    ]
+
   },
   {
     role: "District Coordinator",
@@ -49,12 +39,6 @@ const experiences = [
     period: "2023 - Present",
     icon: faUsers,
     color: "from-purple-500 to-indigo-500",
-    desc: "Coordinate district-wide community and youth engagement programs, manage budgets, and liaise with government bodies.",
-    bullets: [
-      "Planned and executed 5+ district-wide skills development workshops for 300+ attendees.",
-      "Formulated operational plans and budget structures for community welfare campaigns.",
-      "Coordinated cross-functional teams of local youth leaders and external speakers."
-    ]
   },
   {
     role: "Website In-charge",
@@ -62,12 +46,6 @@ const experiences = [
     period: "2022 - 2024",
     icon: faGlobe,
     color: "from-cyan-500 to-teal-500",
-    desc: "Administered web publishing systems, updated daily portals, monitored traffic analytics, and managed SEO and security.",
-    bullets: [
-      "Enhanced portal navigation, increasing average user session times by 25%.",
-      "Drove SEO campaigns that grew organic search traffic by 30% over 12 months.",
-      "Implemented security protocols preventing site downtime during major news releases."
-    ]
   },
   {
     role: "Staff Journalist",
@@ -75,12 +53,6 @@ const experiences = [
     period: "2021 - 2023",
     icon: faPenNib,
     color: "from-indigo-500 to-purple-500",
-    desc: "Investigated regional affairs, conducted interviews with community figures, and published feature reports.",
-    bullets: [
-      "Reported and published over 120 high-engagement articles on community development.",
-      "Conducted focus interviews that expanded newspaper subscriptions in the Eastern district.",
-      "Collaborated with press photography teams to create rich media packages."
-    ]
   },
   {
     role: "Event Management Intern",
@@ -88,12 +60,6 @@ const experiences = [
     period: "2023",
     icon: faUserGraduate,
     color: "from-emerald-500 to-teal-500",
-    desc: "Hands-on academic internship focused on venue setup, vendor relations, logistics coordination, and guest hosting.",
-    bullets: [
-      "Supported operational execution of a large-scale corporate conference (500+ attendees).",
-      "Managed registration desks and delegate badge printing operations.",
-      "Coordinated with food & beverage vendors to match event scheduling and dietary requests."
-    ]
   },
   {
     role: "Volunteer Coordinator",
@@ -101,12 +67,6 @@ const experiences = [
     period: "2022 - Present",
     icon: faHandHoldingHeart,
     color: "from-rose-500 to-pink-500",
-    desc: "Organized disaster relief packaging, mapped logistics, and coordinated emergency distribution teams.",
-    bullets: [
-      "Coordinated food and medical kit distributions to over 500 families.",
-      "Recruited and trained 40+ community youth volunteers.",
-      "Collaborated with international program leads to verify relief distribution metrics."
-    ]
   },
   {
     role: "Cultural Secretary",
@@ -114,12 +74,6 @@ const experiences = [
     period: "2022 - 2023",
     icon: faMusic,
     color: "from-amber-500 to-orange-500",
-    desc: "Promoted local cultural events, organized regional youth talent contests, and managed community arts budgets.",
-    bullets: [
-      "Successfully directed the Divisional Youth Cultural Festival, drawing 1,000+ attendees.",
-      "Created talent categories that encouraged youth participation in traditional arts.",
-      "Secured local corporate sponsorships to fund artist awards and stage setups."
-    ]
   },
   {
     role: "Secretary",
@@ -127,12 +81,6 @@ const experiences = [
     period: "2021 - 2022",
     icon: faFolderOpen,
     color: "from-blue-500 to-indigo-500",
-    desc: "Administered meetings agenda, documented official records, prepared annual reports, and scheduled community drives.",
-    bullets: [
-      "Orchestrated 8+ environmental cleanup and recycling awareness initiatives.",
-      "Maintained meticulous activity registers, earning club praise from the divisional registrar.",
-      "Drafted communications and reports for funding organizations."
-    ]
   },
   {
     role: "District Facilitator",
@@ -140,25 +88,13 @@ const experiences = [
     period: "2021 - 2023",
     icon: faChalkboard,
     color: "from-teal-500 to-cyan-500",
-    desc: "Facilitated educational seminars, peace education curricula, and personal leadership modules in youth centres.",
-    bullets: [
-      "Conducted 20+ interactive soft-skills seminars for students and teenagers.",
-      "Curated values-based discussion guides adapted to local bilingual school setups.",
-      "Administered participant evaluations demonstrating a 90% positive feedback score."
-    ]
   },
   {
     role: "Divisional Coordinator",
     org: "Iconic Youths",
     period: "2020 - 2021",
     icon: faSitemap,
-    color: "from-purple-500 to-pink-500",
-    desc: "Managed local volunteer units, initiated personal development campaigns, and designed local outreach agendas.",
-    bullets: [
-      "Directed advocacy programs on digital media literacy reaching 200+ adolescents.",
-      "Organized leadership summits that brought together youth delegates from 12 villages.",
-      "Facilitated career mentoring sessions in cooperation with local businesses."
-    ]
+    color: "from-purple-500 to-pink-500"
   }
 ];
 
@@ -176,25 +112,18 @@ function ExpCard({ exp, direction = 'left' }) {
       <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${exp.color} rounded-l-3xl`} />
 
       <div className="pl-3 sm:pl-4">
-        <span className="text-[10px] sm:text-xs font-bold text-primary-600 dark:text-secondary-400 uppercase tracking-wide bg-primary-500/10 dark:bg-secondary-500/10 px-2.5 py-1 rounded-full">
+        <span className="text-[10px] sm:text-xs font-bold text-primary-600 dark:text-white uppercase tracking-wide bg-primary-500/10 dark:bg-secondary-500/10 px-2.5 py-1 rounded-full">
           {exp.period}
         </span>
         <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white mt-2">
           {exp.role}
         </h3>
-        <h4 className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 mb-3">
+        <h4 className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-white mb-3">
           {exp.org}
         </h4>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-350 leading-relaxed mb-3 sm:mb-4">
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-white leading-relaxed">
           {exp.desc}
         </p>
-
-        {/* Achievements Bullet List */}
-        <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-outside pl-4">
-          {exp.bullets.map((b, idx) => (
-            <li key={idx} className="leading-relaxed">{b}</li>
-          ))}
-        </ul>
       </div>
     </motion.div>
   );
