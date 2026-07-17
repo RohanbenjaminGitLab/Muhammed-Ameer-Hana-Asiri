@@ -4,6 +4,10 @@
 @theme {
   --font-sans: "Poppins", sans-serif;
 
+  /* ── Custom Breakpoints ─────────────────────────── */
+  --breakpoint-xs: 480px;   /* Large mobile */
+  --breakpoint-3xl: 1920px; /* Ultra-wide */
+
   --color-primary-50: #e6f0fc;
   --color-primary-100: #c2ddfc;
   --color-primary-200: #93c4f8;
@@ -41,6 +45,8 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
+  /* Prevent horizontal overflow at the root */
+  overflow-x: hidden;
 }
 
 body {
@@ -51,6 +57,9 @@ body {
   transition-duration: 300ms;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* Ensure body never wider than viewport */
+  max-width: 100vw;
+  position: relative;
 }
 
 .dark body {
@@ -58,9 +67,63 @@ body {
   color: var(--color-slate-100);
 }
 
+/* =============================================
+   RESPONSIVE CONTAINER SYSTEM
+   - Mobile-first, scales up gracefully
+   ============================================= */
+.container-responsive {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 3rem);
+  padding-right: clamp(1rem, 4vw, 3rem);
+}
+
+/* =============================================
+   RESPONSIVE TYPOGRAPHY
+   - Fluid font sizes using clamp()
+   ============================================= */
+.text-fluid-hero {
+  font-size: clamp(2rem, 5vw + 0.5rem, 4rem);
+  line-height: 1.15;
+}
+
+.text-fluid-section {
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+  line-height: 1.2;
+}
+
+.text-fluid-card {
+  font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem);
+}
+
+/* =============================================
+   GLOBAL BOX-SIZING & OVERFLOW PREVENTION
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -128,11 +191,22 @@ body {
 
 /* Background Animated Blobs */
 .bg-blob {
-  filter: blur(100px);
+  filter: blur(80px);
   position: absolute;
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
+  /* Constrain blobs so they don't cause horizontal overflow */
+  max-width: 60vw;
+  max-height: 60vw;
+}
+
+@media (min-width: 768px) {
+  .bg-blob {
+    filter: blur(100px);
+    max-width: none;
+    max-height: none;
+  }
 }
 
 /* Timeline Custom Styles */
@@ -145,4 +219,125 @@ body {
 }
 .dark .timeline-dot {
   box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+
+/* =============================================
+   TOUCH-FRIENDLY MINIMUM TARGET SIZES
+   Ensures all interactive elements are ≥ 44×44px
+   ============================================= */
+button,
+a,
+[role="button"] {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Override for inline text links that shouldn't be block */
+p a,
+li a,
+nav a {
+  min-height: auto;
+  display: inline;
+  align-items: unset;
+  justify-content: unset;
+}
+
+/* =============================================
+   RESPONSIVE SECTION PADDING
+   Mobile-first py values
+   ============================================= */
+.section-padding {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+/* =============================================
+   EXPERIENCE TIMELINE — MOBILE FIX
+   ============================================= */
+.exp-timeline-container {
+  position: relative;
+}
+
+/* Mobile: left-aligned single-column timeline */
+.exp-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary-500), var(--color-secondary-500));
+}
+
+/* Desktop: center-aligned alternating timeline */
+@media (min-width: 768px) {
+  .exp-timeline-container::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* =============================================
+   WORD BREAK FOR LONG URLS/TEXT
+   ============================================= */
+.word-break-all {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+/* =============================================
+   RESPONSIVE GRID HELPERS
+   ============================================= */
+.responsive-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .responsive-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* =============================================
+   HERO FLOATING BADGES — prevent overflow on small screens
+   ============================================= */
+.hero-badge {
+  max-width: calc(100vw - 3rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    max-width: 140px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* =============================================
+   NAVBAR MOBILE IMPROVEMENTS
+   ============================================= */
+.mobile-nav-link {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  min-height: 48px;
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
 }

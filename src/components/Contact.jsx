@@ -34,7 +34,6 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Client-side validations
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -59,12 +58,10 @@ export default function Contact() {
 
     setStatus({ type: "loading", message: "Sending your message..." });
 
-    // Retrieve environment variables
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // Graceful fallback for demo/development if environment keys are missing
     if (!serviceId || !templateId || !publicKey) {
       setTimeout(() => {
         setStatus({
@@ -77,7 +74,6 @@ export default function Contact() {
       return;
     }
 
-    // Call EmailJS API
     emailjs
       .send(
         serviceId,
@@ -90,7 +86,7 @@ export default function Contact() {
         },
         publicKey,
       )
-      .then((result) => {
+      .then(() => {
         setStatus({
           type: "success",
           message:
@@ -117,28 +113,26 @@ export default function Contact() {
     },
     {
       icon: faPhone,
-      label: "Phone",
-      phones: [
-        {
-          val: "+94 750652541",
-          href: "tel:+94750652541",
-        },
-        {
-          val: "+94 767620601",
-          href: "tel:+94767620601",
-        },
-      ],
+      label: "Phone (Primary)",
+      val: "+94 750 652 541",
+      href: "tel:+94750652541",
+    },
+    {
+      icon: faPhone,
+      label: "Phone (Secondary)",
+      val: "+94 767 620 601",
+      href: "tel:+94767620601",
     },
     {
       icon: faLinkedin,
       label: "LinkedIn",
-      val: "https://www.linkedin.com/in/asri-ibnu-ameer-ab567b1ab",
+      val: "linkedin.com/in/asri-ibnu-ameer",
       href: "https://www.linkedin.com/in/asri-ibnu-ameer-ab567b1ab",
     },
     {
       icon: faBlogger,
       label: "Blogspot",
-      val: "https://asriibnuameer.blogspot.com/search/label/Social%20Work",
+      val: "asriibnuameer.blogspot.com",
       href: "https://asriibnuameer.blogspot.com/search/label/Social%20Work",
     },
     {
@@ -152,20 +146,23 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 relative overflow-hidden transition-colors duration-300"
+      className="py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300"
     >
       {/* Decorative Blur Blob */}
-      <div className="bg-blob w-112.5 h-112.5 bg-secondary-500/10 dark:bg-primary-500/5 -bottom-24 -right-24 rounded-full" />
+      <div
+        className="bg-blob bg-secondary-500/10 dark:bg-primary-500/5"
+        style={{ width: 'min(450px, 80vw)', height: 'min(450px, 80vw)', bottom: '-6rem', right: '-6rem' }}
+      />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
           >
             Get In <span className="text-gradient">Touch</span>
           </motion.h2>
@@ -174,19 +171,20 @@ export default function Contact() {
             whileInView={{ width: "80px" }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="h-0.75 bg-linear-to-r from-primary-500 to-secondary-500 mx-auto mt-4 rounded-full"
+            className="h-[3px] bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto mt-4 rounded-full"
           />
         </div>
 
-        {/* Contact Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Contact Layout Grid — stack on mobile, 12-col on lg */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
+
           {/* Left Column: Contact info cards */}
-          <div className="lg:col-span-5 space-y-6 flex flex-col justify-center">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6 flex flex-col justify-center">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
                 Let's Discuss Opportunities
               </h3>
-              <p className="text-slate-550 dark:text-slate-400 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 mb-6 sm:mb-8 leading-relaxed">
                 Whether you have an event to plan, a project to coordinate, an
                 HR position to fill, or just want to connect, feel free to reach
                 out. I am open to job opportunities, community work, and
@@ -194,76 +192,51 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="space-y-4">
-              {contactDetails.map((detail, index) => {
-                const CardWrapper = detail.href ? "a" : "div";
-                const wrapperProps = detail.href
-                  ? {
-                    href: detail.href,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
+            <div className="space-y-3 sm:space-y-4">
+              {contactDetails.map((detail, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={
+                    detail.href ? { x: 5, transition: { duration: 0.2 } } : {}
                   }
-                  : {};
+                  className="flex items-center gap-3 sm:gap-4 glass-card-light dark:glass-card-dark p-3.5 sm:p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm"
+                >
+                  {/* Icon */}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-inner flex-shrink-0">
+                    <FontAwesomeIcon
+                      icon={detail.icon}
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 dark:text-secondary-400"
+                    />
+                  </div>
 
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={
-                      detail.href ? { x: 5, transition: { duration: 0.2 } } : {}
-                    }
-                    className="flex items-center gap-4 glass-card-light dark:glass-card-dark p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm"
-                  >
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-inner">
-                      <FontAwesomeIcon
-                        icon={detail.icon}
-                        className="w-5 h-5 text-primary-500 dark:text-secondary-400"
-                      />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <span className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
-                        {detail.label}
-                      </span>
+                  {/* Text */}
+                  <div className="min-w-0 flex-1 overflow-hidden">
+                    <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-0.5">
+                      {detail.label}
+                    </span>
 
-                      {detail.phones ? (
-                        detail.phones.map((phone, i) => (
-                          <a
-                            key={i}
-                            href={phone.href}
-                            className="block text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors mt-0.5"
-                          >
-                            {phone.val}
-                          </a>
-                        ))
-                      ) : detail.href ? (
-                        <a
-                          href={detail.href}
-                          target={
-                            detail.href.startsWith("http")
-                              ? "_blank"
-                              : undefined
-                          }
-                          rel={
-                            detail.href.startsWith("http")
-                              ? "noopener noreferrer"
-                              : undefined
-                          }
-                          className="block text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors mt-0.5 break-all"
-                        >
-                          {detail.val}
-                        </a>
-                      ) : (
-                        <p className="text-sm md:text-base font-bold text-slate-850 dark:text-slate-200 mt-0.5 break-all">
-                          {detail.val}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
+                    {detail.href ? (
+                      <a
+                        href={detail.href}
+                        target={detail.href.startsWith("http") ? "_blank" : undefined}
+                        rel={detail.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="block text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors truncate"
+                        title={detail.val}
+                      >
+                        {detail.val}
+                      </a>
+                    ) : (
+                      <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">
+                        {detail.val}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
 
@@ -273,17 +246,18 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 glass-card-light dark:glass-card-dark p-8 rounded-3xl border border-slate-202/50 dark:border-slate-800/50 shadow-md relative"
+            className="lg:col-span-7 glass-card-light dark:glass-card-dark p-5 sm:p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-md relative"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" noValidate>
+
               {/* Row 1: Name & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="space-y-1.5 sm:space-y-2">
                   <label
                     htmlFor="name"
-                    className="text-sm font-semibold text-slate-800 dark:text-slate-200"
+                    className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 block"
                   >
-                    Full Name <span className="text-red-500">*</span>
+                    Full Name <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="text"
@@ -293,16 +267,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your name"
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                    autoComplete="name"
+                    className="w-full px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors text-sm"
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5 sm:space-y-2">
                   <label
                     htmlFor="email"
-                    className="text-sm font-semibold text-slate-800 dark:text-slate-200"
+                    className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 block"
                   >
-                    Email Address <span className="text-red-500">*</span>
+                    Email Address <span className="text-red-500" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="email"
@@ -312,16 +287,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                    autoComplete="email"
+                    className="w-full px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors text-sm"
                   />
                 </div>
               </div>
 
               {/* Subject */}
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 <label
                   htmlFor="subject"
-                  className="text-sm font-semibold text-slate-800 dark:text-slate-200"
+                  className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 block"
                 >
                   Subject
                 </label>
@@ -332,17 +308,17 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Enter message subject"
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors"
+                  className="w-full px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors text-sm"
                 />
               </div>
 
               {/* Message */}
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-sm font-semibold text-slate-800 dark:text-slate-200"
+                  className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 block"
                 >
-                  Message <span className="text-red-500">*</span>
+                  Message <span className="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -352,32 +328,32 @@ export default function Contact() {
                   required
                   rows="5"
                   placeholder="Type your message here..."
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors resize-none"
+                  className="w-full px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-colors resize-none text-sm"
                 />
               </div>
 
               {/* Submit Button & Status Message */}
-              <div className="space-y-4 pt-2">
+              <div className="space-y-3 sm:space-y-4 pt-1 sm:pt-2">
                 <button
                   type="submit"
                   disabled={status.type === "loading"}
-                  className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
+                  className="w-full py-3.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 min-h-[48px]"
                 >
-                  <FontAwesomeIcon icon={faPaperPlane} />
-                  {status.type === "loading"
-                    ? "Sending Message..."
-                    : "Send Message"}
+                  <FontAwesomeIcon icon={faPaperPlane} aria-hidden="true" />
+                  {status.type === "loading" ? "Sending Message..." : "Send Message"}
                 </button>
 
                 {/* Status Alerts */}
                 {status.type && status.type !== "loading" && (
                   <div
-                    className={`p-4 rounded-xl text-sm border flex items-center gap-2 ${status.type === "success"
-                        ? "bg-green-550/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
+                    role="alert"
+                    className={`p-3 sm:p-4 rounded-xl text-xs sm:text-sm border flex items-start gap-2 ${
+                      status.type === "success"
+                        ? "bg-green-500/10 dark:bg-green-500/5 text-green-700 dark:text-green-400 border-green-500/20"
                         : "bg-red-500/10 dark:bg-red-500/5 text-red-700 dark:text-red-400 border-red-500/20"
-                      }`}
+                    }`}
                   >
-                    <span>{status.type === "success" ? "🚀" : "⚠️"}</span>
+                    <span className="flex-shrink-0 mt-0.5" aria-hidden="true">{status.type === "success" ? "🚀" : "⚠️"}</span>
                     <span>{status.message}</span>
                   </div>
                 )}

@@ -32,20 +32,23 @@ const educationList = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 bg-slate-50/50 dark:bg-slate-900/30 relative overflow-hidden transition-colors duration-300">
+    <section id="education" className="py-16 sm:py-20 md:py-24 bg-slate-50/50 dark:bg-slate-900/30 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Blob */}
-      <div className="bg-blob w-80 h-80 bg-secondary-500/10 dark:bg-primary-500/5 -bottom-12 left-10 rounded-full" />
+      <div
+        className="bg-blob bg-secondary-500/10 dark:bg-primary-500/5"
+        style={{ width: 'min(320px, 60vw)', height: 'min(320px, 60vw)', bottom: '-3rem', left: '2.5rem' }}
+      />
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
           >
             Education <span className="text-gradient">Timeline</span>
           </motion.h2>
@@ -59,52 +62,62 @@ export default function Education() {
         </div>
 
         {/* Education Timeline */}
-        <div className="relative border-l-2 border-slate-200 dark:border-slate-800 pl-8 ml-4 md:ml-6 space-y-12">
-          
-          {educationList.map((edu, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative"
-            >
-              {/* Timeline dot */}
-              <div className="absolute -left-[50px] md:-left-[54px] top-1.5 w-10 h-10 rounded-full bg-white dark:bg-slate-950 border-4 border-slate-200 dark:border-slate-800 flex items-center justify-center timeline-dot z-10">
-                <FontAwesomeIcon icon={edu.icon} className="w-4 h-4 text-primary-500 dark:text-secondary-400" />
-              </div>
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-4 sm:left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500/60 to-secondary-500/60 rounded-full" aria-hidden="true" />
 
-              {/* Glass Card */}
-              <div className="glass-card-light dark:glass-card-dark p-6 rounded-3xl relative overflow-hidden transition-all duration-300 hover:shadow-lg shadow-sm border border-slate-200/50 dark:border-slate-800/50">
-                <div className={`absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b ${edu.color}`} />
-                
-                <div className="pl-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-primary-655 dark:text-secondary-400 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-full w-fit">
-                      {edu.period}
-                    </span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
-                      📍 Sri Lanka
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
-                    {edu.degree}
-                  </h3>
-                  
-                  <h4 className="text-sm font-semibold text-slate-600 dark:text-slate-350 mb-3">
-                    {edu.institution}
-                  </h4>
-                  
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                    {edu.details}
-                  </p>
+          <div className="space-y-8 sm:space-y-12 pl-12 sm:pl-16">
+            {educationList.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="relative"
+              >
+                {/* Timeline dot — positioned relative to the outer pl-container */}
+                <div
+                  className="absolute top-4 rounded-full bg-white dark:bg-slate-950 border-4 border-slate-200 dark:border-slate-800 flex items-center justify-center timeline-dot z-10 shadow-md"
+                  style={{
+                    left: '-2.75rem',
+                    width: '2rem',
+                    height: '2rem',
+                  }}
+                >
+                  <FontAwesomeIcon icon={edu.icon} className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary-500 dark:text-secondary-400" />
                 </div>
-              </div>
-            </motion.div>
-          ))}
 
+                {/* Glass Card */}
+                <div className="glass-card-light dark:glass-card-dark p-4 sm:p-6 rounded-3xl relative overflow-hidden transition-all duration-300 hover:shadow-lg shadow-sm border border-slate-200/50 dark:border-slate-800/50">
+                  <div className={`absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b ${edu.color} rounded-l-3xl`} />
+
+                  <div className="pl-2 sm:pl-3">
+                    <div className="flex flex-col xs:flex-row xs:justify-between xs:items-center gap-2 mb-3">
+                      <span className="text-[10px] sm:text-xs font-bold text-primary-600 dark:text-secondary-400 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-full w-fit">
+                        {edu.period}
+                      </span>
+                      <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
+                        📍 Sri Lanka
+                      </span>
+                    </div>
+
+                    <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white mb-1 leading-snug">
+                      {edu.degree}
+                    </h3>
+
+                    <h4 className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2 sm:mb-3">
+                      {edu.institution}
+                    </h4>
+
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                      {edu.details}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
       </div>

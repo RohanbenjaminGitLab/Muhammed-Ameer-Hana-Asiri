@@ -21,21 +21,40 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
   // Monitor scroll for shadow/opacity effects
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   // IntersectionObserver for active section highlight
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px', // trigger when section occupies viewport center
+      rootMargin: '-40% 0px -50% 0px',
       threshold: 0
     };
 
@@ -69,96 +88,154 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'glass-navbar-light dark:glass-navbar-dark shadow-lg py-3'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo / Name */}
-        <div 
-          onClick={() => handleLinkClick('hero')} 
-          className="cursor-pointer font-bold text-xl md:text-2xl tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
-        >
-          <span className="bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Asri ibnu Ameer</span>
-        </div>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'glass-navbar-light dark:glass-navbar-dark shadow-lg py-2 md:py-3'
+            : 'bg-transparent py-3 md:py-5'
+        }`}
+      >
+        {/* Main navbar row */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center min-h-[56px]">
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {/* Logo / Name */}
+          <div
+            onClick={() => handleLinkClick('hero')}
+            className="cursor-pointer font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-slate-900 dark:text-white flex items-center gap-2 flex-shrink-0 min-h-[44px]"
+          >
+            <span className="bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
+              Asri ibnu Ameer
+            </span>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Primary navigation">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleLinkClick(link.id)}
+                className={`text-sm font-medium transition-colors hover:text-primary-500 dark:hover:text-secondary-400 relative py-1 min-h-[44px] px-1 ${
+                  activeSection === link.id
+                    ? 'text-primary-600 dark:text-secondary-400'
+                    : 'text-slate-600 dark:text-slate-300'
+                }`}
+              >
+                {link.name}
+                {activeSection === link.id && (
+                  <motion.span
+                    layoutId="activeIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary-500 to-secondary-500 rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
+          </nav>
+
+          {/* Right side: Dark Mode Toggle & Hamburger */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Theme Toggle Button */}
             <button
-              key={link.id}
-              onClick={() => handleLinkClick(link.id)}
-              className={`text-sm font-medium transition-colors hover:text-primary-500 dark:hover:text-secondary-400 relative py-1 ${
-                activeSection === link.id
-                  ? 'text-primary-600 dark:text-secondary-400'
-                  : 'text-slate-600 dark:text-slate-300'
-              }`}
+              onClick={toggleDarkMode}
+              aria-label="Toggle theme"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors shadow-sm flex items-center justify-center flex-shrink-0"
             >
-              {link.name}
-              {activeSection === link.id && (
-                <motion.span
-                  layoutId="activeIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary-500 to-secondary-500 rounded-full"
-                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                />
-              )}
+              <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="w-4 h-4" />
             </button>
-          ))}
-        </nav>
 
-        {/* Right side buttons: Dark Mode Toggle & Hamburger */}
-        <div className="flex items-center gap-4">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleDarkMode}
-            aria-label="Toggle theme"
-            className="p-2.5 rounded-full glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors shadow-sm"
-          >
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="w-4 h-4" />
-          </button>
-
-          {/* Hamburger Menu Icon */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            className="lg:hidden p-2.5 rounded-full glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors shadow-sm"
-          >
-            <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="w-4 h-4" />
-          </button>
+            {/* Hamburger Menu Icon — mobile/tablet only */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav"
+              className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 rounded-full glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors shadow-sm flex items-center justify-center flex-shrink-0"
+            >
+              <FontAwesomeIcon icon={isOpen ? faXmark : faBars} className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Full-Screen Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden glass-navbar-light dark:glass-navbar-dark shadow-xl overflow-hidden mt-2 border-t border-slate-200/50 dark:border-slate-800/50"
-          >
-            <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Slide-in Drawer */}
+            <motion.div
+              id="mobile-nav"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="lg:hidden fixed top-0 right-0 bottom-0 z-50 w-4/5 max-w-xs glass-navbar-light dark:glass-navbar-dark shadow-2xl flex flex-col"
+            >
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200/50 dark:border-slate-800/50">
+                <span className="font-bold text-lg bg-linear-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">
+                  Navigation
+                </span>
                 <button
-                  key={link.id}
-                  onClick={() => handleLinkClick(link.id)}
-                  className={`text-left text-base font-semibold py-2 transition-colors ${
-                    activeSection === link.id
-                      ? 'text-primary-600 dark:text-secondary-400'
-                      : 'text-slate-600 dark:text-slate-300'
-                  }`}
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Close menu"
+                  className="w-10 h-10 rounded-full glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors flex items-center justify-center"
                 >
-                  {link.name}
+                  <FontAwesomeIcon icon={faXmark} className="w-4 h-4" />
                 </button>
-              ))}
-            </div>
-          </motion.div>
+              </div>
+
+              {/* Nav Links */}
+              <nav className="flex flex-col flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile navigation">
+                {navLinks.map((link, i) => (
+                  <motion.button
+                    key={link.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => handleLinkClick(link.id)}
+                    className={`mobile-nav-link text-left text-base font-semibold transition-colors flex items-center gap-3 ${
+                      activeSection === link.id
+                        ? 'text-primary-600 dark:text-secondary-400'
+                        : 'text-slate-600 dark:text-slate-300'
+                    }`}
+                  >
+                    {activeSection === link.id && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-secondary-400 flex-shrink-0" />
+                    )}
+                    {link.name}
+                  </motion.button>
+                ))}
+              </nav>
+
+              {/* Drawer Footer */}
+              <div className="px-6 py-5 border-t border-slate-200/50 dark:border-slate-800/50">
+                <button
+                  onClick={toggleDarkMode}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-card-light dark:glass-card-dark text-slate-700 dark:text-slate-200 hover:text-primary-500 dark:hover:text-secondary-400 transition-colors font-medium text-sm"
+                >
+                  <FontAwesomeIcon icon={darkMode ? faSun : faMoon} className="w-4 h-4" />
+                  {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                </button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

@@ -6,6 +6,15 @@ export default {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      'xs': '480px',   // Large mobile
+      'sm': '640px',   // Small tablet / large phone
+      'md': '768px',   // Tablet
+      'lg': '1024px',  // Laptop
+      'xl': '1280px',  // Desktop
+      '2xl': '1440px', // Large desktop
+      '3xl': '1920px', // Ultra-wide
+    },
     extend: {
       colors: {
         primary: {
@@ -42,6 +51,10 @@ export default {
         'spin-slow': 'spin 15s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      maxWidth: {
+        '8xl': '88rem',  // 1408px — ultra-wide container
+        '9xl': '96rem',  // 1536px
       },
     },
   },

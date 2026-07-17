@@ -43,20 +43,23 @@ const achievementsList = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 relative overflow-hidden transition-colors duration-300">
+    <section id="achievements" className="py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Blob */}
-      <div className="bg-blob w-96 h-96 bg-primary-500/10 dark:bg-secondary-500/5 top-10 right-10 rounded-full" />
+      <div
+        className="bg-blob bg-primary-500/10 dark:bg-secondary-500/5"
+        style={{ width: 'min(384px, 70vw)', height: 'min(384px, 70vw)', top: '2.5rem', right: '2.5rem' }}
+      />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
           >
             Key <span className="text-gradient">Achievements</span>
           </motion.h2>
@@ -70,7 +73,7 @@ export default function Achievements() {
         </div>
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {achievementsList.map((ach, index) => (
             <motion.div
               key={index}
@@ -79,35 +82,35 @@ export default function Achievements() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.03, y: -4 }}
-              className="glass-card-light dark:glass-card-dark p-8 rounded-3xl relative overflow-hidden border border-slate-205/50 dark:border-slate-800/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
+              className="glass-card-light dark:glass-card-dark p-5 sm:p-6 md:p-8 rounded-3xl relative overflow-hidden border border-slate-200/50 dark:border-slate-800/50 transition-all duration-300 shadow-sm flex flex-col justify-between"
             >
               {/* Colored top gradient line */}
               <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${ach.color}`} />
 
               <div>
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-4 sm:mb-6 mt-1">
                   {/* Icon Card */}
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-inner">
-                    <FontAwesomeIcon icon={ach.icon} className="w-5 h-5 text-primary-500 dark:text-secondary-400" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-inner flex-shrink-0">
+                    <FontAwesomeIcon icon={ach.icon} className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 dark:text-secondary-400" />
                   </div>
                   {/* Label Badge */}
-                  <span className="text-[10px] font-extrabold tracking-wider text-slate-400 dark:text-slate-500 uppercase">
+                  <span className="text-[9px] sm:text-[10px] font-extrabold tracking-wider text-slate-400 dark:text-slate-500 uppercase ml-2 flex-shrink-0">
                     {ach.domain}
                   </span>
                 </div>
 
                 {/* Big Metric Callout */}
-                <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-3">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 sm:mb-3 leading-snug">
                   {ach.metric}
                 </h3>
 
-                <p className="text-sm text-slate-550 dark:text-slate-400 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-slate-550 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4">
                   {ach.desc}
                 </p>
               </div>
 
               {/* Verified Tag */}
-              <div className="text-[10px] font-bold text-green-600 dark:text-green-455 tracking-wider uppercase flex items-center gap-1.5 pt-4 border-t border-slate-200/50 dark:border-slate-800/50 w-full mt-4">
+              <div className="text-[9px] sm:text-[10px] font-bold text-green-600 dark:text-green-400 tracking-wider uppercase flex items-center gap-1.5 pt-3 sm:pt-4 border-t border-slate-200/50 dark:border-slate-800/50 w-full mt-3 sm:mt-4">
                 ✔️ Proven Recruiter Metric
               </div>
             </motion.div>
