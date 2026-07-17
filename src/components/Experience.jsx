@@ -20,63 +20,54 @@ const experiences = [
   {
     role: "Former Deputy Manager",
     org: "Thuninthalu Magazine, Sky Tamil Media",
-    period: "2024 - Present",
     icon: faNewspaper,
     color: "from-blue-500 to-indigo-500",
   },
   {
     role: "Former Assistant News Manager, District Coordinator & Website In-charge",
     org: "Sky Tamil Media",
-    period: "2022 - 2024",
     icon: faGlobe,
     color: "from-blue-500 to-cyan-500",
   },
   {
     role: "Completed Internship Program",
     org: "HNDEM-Level 06",
-    period: "2023",
     icon: faUserGraduate,
     color: "from-emerald-500 to-teal-500",
   },
   {
     role: "Volunteer Work",
     org: "Islamic Relief",
-    period: "2022 - Present",
     icon: faHandHoldingHeart,
     color: "from-rose-500 to-pink-500",
   },
   {
     role: "Former Cultural Secretary",
     org: "Divisional Federation of Youth Clubs, Addalaichenai",
-    period: "2022 - 2023",
     icon: faMusic,
     color: "from-amber-500 to-orange-500",
   },
   {
     role: "Secretary",
     org: "Maaz Youth Club, Addalaichenai 10",
-    period: "2021 - 2022",
     icon: faFolderOpen,
     color: "from-blue-500 to-indigo-500",
   },
   {
     role: "Former Staff Journalist",
     org: "Ceyloneast Website",
-    period: "2021 - 2023",
     icon: faPenNib,
     color: "from-indigo-500 to-purple-500",
   },
   {
     role: "Former Ampara District Facilitator",
     org: "Values4All Organization (Asia Foundation)",
-    period: "2021 - 2023",
     icon: faChalkboard,
     color: "from-teal-500 to-cyan-500",
   },
   {
     role: "Addalaichenai Divisional Coordinator",
     org: "Iconic Youths (Social Service Organization)",
-    period: "2020 - 2021",
     icon: faSitemap,
     color: "from-purple-500 to-pink-500"
   }
