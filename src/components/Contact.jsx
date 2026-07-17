@@ -202,12 +202,12 @@ export default function Contact() {
                       : {}
                   }
                   style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-                  className="glass-card-light dark:glass-card-dark px-4 py-4 sm:px-5 sm:py-4 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm gap-4"
+                  className="glass-card-light dark:glass-card-dark px-4 py-4 sm:px-5 sm:py-4 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm gap-4 "
                 >
                   {/* ── Icon (always vertically centered) ── */}
                   <div
                     style={{ flexShrink: 0, alignSelf: "center" }}
-                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 shadow-inner"
+                    className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 shadow-inner leading-none"
                   >
                     <FontAwesomeIcon
                       icon={detail.icon}
@@ -224,13 +224,17 @@ export default function Contact() {
 
                     {/* Phone — vertical stack, one number per line */}
                     {detail.phones ? (
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "100%" }}>
+                      <div style={{
+                        display: "flex",
+                        gap: "2px",
+                        flexDirection: "column"
+                      }}>
                         {detail.phones.map((phone, i) => (
                           <a
                             key={i}
                             href={phone.href}
-                            style={{ display: "block" }}
-                            className="text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors leading-snug"
+                            style={{ minHeight: "auto" }}
+                            className="block text-sm font-semibold leading-none text-slate-800 dark:text-slate-100 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors"
                           >
                             {phone.val}
                           </a>
@@ -250,7 +254,7 @@ export default function Contact() {
                     ) : (
                       <p
                         style={{ margin: 0 }}
-                        className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-snug"
+                        className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-tight"
                       >
                         {detail.val}
                       </p>
