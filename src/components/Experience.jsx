@@ -18,80 +18,64 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    role: "Deputy Manager",
-    org: "Thuninthalu Magazine (Sky Tamil Media)",
+    role: "Former Deputy Manager",
+    org: "Thuninthalu Magazine, Sky Tamil Media",
     period: "2024 - Present",
     icon: faNewspaper,
     color: "from-blue-500 to-indigo-500",
-
   },
   {
-    role: "Assistant News Manager",
-    org: "Sky Tamil Media",
-    period: "2023 - 2024",
-    icon: faBullhorn,
-    color: "from-blue-500 to-cyan-500",
-
-  },
-  {
-    role: "District Coordinator",
-    org: "National Youth Initiatives",
-    period: "2023 - Present",
-    icon: faUsers,
-    color: "from-purple-500 to-indigo-500",
-  },
-  {
-    role: "Website In-charge",
+    role: "Former Assistant News Manager, District Coordinator & Website In-charge",
     org: "Sky Tamil Media",
     period: "2022 - 2024",
     icon: faGlobe,
-    color: "from-cyan-500 to-teal-500",
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    role: "Staff Journalist",
-    org: "CeylonEast",
-    period: "2021 - 2023",
-    icon: faPenNib,
-    color: "from-indigo-500 to-purple-500",
-  },
-  {
-    role: "Event Management Intern",
-    org: "HNDEM level 06 Internship",
+    role: "Completed Internship Program",
+    org: "HNDEM-Level 06",
     period: "2023",
     icon: faUserGraduate,
     color: "from-emerald-500 to-teal-500",
   },
   {
-    role: "Volunteer Coordinator",
+    role: "Volunteer Work",
     org: "Islamic Relief",
     period: "2022 - Present",
     icon: faHandHoldingHeart,
     color: "from-rose-500 to-pink-500",
   },
   {
-    role: "Cultural Secretary",
-    org: "Divisional Federation of Youth Clubs",
+    role: "Former Cultural Secretary",
+    org: "Divisional Federation of Youth Clubs, Addalaichenai",
     period: "2022 - 2023",
     icon: faMusic,
     color: "from-amber-500 to-orange-500",
   },
   {
     role: "Secretary",
-    org: "Maaz Youth Club",
+    org: "Maaz Youth Club, Addalaichenai 10",
     period: "2021 - 2022",
     icon: faFolderOpen,
     color: "from-blue-500 to-indigo-500",
   },
   {
-    role: "District Facilitator",
-    org: "Values4All Organization",
+    role: "Former Staff Journalist",
+    org: "Ceyloneast Website",
+    period: "2021 - 2023",
+    icon: faPenNib,
+    color: "from-indigo-500 to-purple-500",
+  },
+  {
+    role: "Former Ampara District Facilitator",
+    org: "Values4All Organization (Asia Foundation)",
     period: "2021 - 2023",
     icon: faChalkboard,
     color: "from-teal-500 to-cyan-500",
   },
   {
-    role: "Divisional Coordinator",
-    org: "Iconic Youths",
+    role: "Addalaichenai Divisional Coordinator",
+    org: "Iconic Youths (Social Service Organization)",
     period: "2020 - 2021",
     icon: faSitemap,
     color: "from-purple-500 to-pink-500"
@@ -121,9 +105,6 @@ function ExpCard({ exp, direction = 'left' }) {
         <h4 className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-white mb-3">
           {exp.org}
         </h4>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-white leading-relaxed">
-          {exp.desc}
-        </p>
       </div>
     </motion.div>
   );

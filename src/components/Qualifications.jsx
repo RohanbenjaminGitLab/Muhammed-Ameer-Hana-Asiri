@@ -1,6 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCertificate, faAward, faShieldHalved, faGlobe, faUserShield, faScaleBalanced, faHandshakeAngle, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCertificate,
+  faAward,
+  faShieldHalved,
+  faGlobe,
+  faUserShield,
+  faScaleBalanced,
+  faHandshakeAngle,
+  faGraduationCap
+} from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
 const qualifications = [
@@ -11,32 +20,32 @@ const qualifications = [
   },
   {
     title: "Professional Human Resource Management",
-    icon: faGlobe,
+    icon: faCertificate,
     color: "from-purple-500 to-indigo-500",
   },
   {
     title: "Youth Community Leadership Initiative (WHO, UNDP, UNV, NYSC)",
-    icon: faAward,
+    icon: faGlobe,
     color: "from-pink-500 to-rose-500",
   },
   {
     title: "Strategic Management in Great Learning Academy",
-    icon: faScaleBalanced,
+    icon: faAward,
     color: "from-cyan-500 to-blue-500",
   },
   {
     title: "Social sensitive Reporting (Sri Lanka College of Journalism)",
-    icon: faShieldHalved,
+    icon: faScaleBalanced,
     color: "from-emerald-500 to-teal-500",
   },
   {
     title: "''MEDIA LITERACY'' Program in the American Center in Colombo",
-    icon: faUserShield,
+    icon: faShieldHalved,
     color: "from-amber-500 to-orange-500",
   },
   {
     title: "TOT Programme (Training on the Values Curriculum Asia Foundation)",
-    icon: faHandshakeAngle,
+    icon: faUserShield,
     color: "from-indigo-500 to-purple-500",
   },
   {
@@ -46,7 +55,7 @@ const qualifications = [
   },
   {
     title: "Professional Mentorship Program under Winspiration 5.0",
-    icon: faHandshakeAngle,
+    icon: faAward,
     color: "from-indigo-500 to-purple-500",
   }
 ];
@@ -113,17 +122,21 @@ export default function Qualifications() {
                   {qual.title}
                 </h3>
 
-                <h4 className="text-[10px] sm:text-xs font-semibold text-primary-600 dark:text-secondary-400 mb-3 sm:mb-4 uppercase tracking-wider leading-snug">
-                  {qual.issuer}
-                </h4>
+                {qual.issuer && (
+                  <h4 className="text-[10px] sm:text-xs font-semibold text-primary-600 dark:text-secondary-400 mb-3 sm:mb-4 uppercase tracking-wider leading-snug">
+                    {qual.issuer}
+                  </h4>
+                )}
 
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 sm:mb-6">
-                  {qual.desc}
-                </p>
+                {qual.desc && (
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 sm:mb-6">
+                    {qual.desc}
+                  </p>
+                )}
               </div>
 
               {/* Bottom decorative details */}
-              <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1.5 pt-3 sm:pt-4 border-t border-slate-200/50 dark:border-slate-800/50 font-medium">
+              <div className="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1.5 pt-3 sm:pt-4 border-t border-slate-200/50 dark:border-slate-800/50 font-medium mt-auto">
                 📄 Professional Credential
               </div>
             </motion.div>
