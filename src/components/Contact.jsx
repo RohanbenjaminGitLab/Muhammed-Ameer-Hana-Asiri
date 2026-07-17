@@ -233,7 +233,7 @@ export default function Contact() {
                           <a
                             key={i}
                             href={phone.href}
-                            style={{ minHeight: "auto" }}
+                            style={{ minHeight: "3vh" }}
                             className="block text-sm font-semibold leading-none text-slate-800 dark:text-slate-100 hover:text-primary-600 dark:hover:text-secondary-400 transition-colors"
                           >
                             {phone.val}
