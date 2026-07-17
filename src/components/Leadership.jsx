@@ -89,22 +89,26 @@ export default function Leadership() {
                     <FontAwesomeIcon icon={act.icon} className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 dark:text-secondary-400" />
                   </div>
                   {/* Category Pill */}
-                  <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-primary-600 dark:text-secondary-400 bg-primary-500/10 dark:bg-secondary-500/10 px-2 sm:px-3 py-1 rounded-full uppercase ml-2 text-right leading-snug">
-                    {act.tag}
-                  </span>
+                  {act.tag && (
+                    <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-primary-600 dark:text-secondary-400 bg-primary-500/10 dark:bg-secondary-500/10 px-2 sm:px-3 py-1 rounded-full uppercase ml-2 text-right leading-snug">
+                      {act.tag}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="text-[10px] sm:text-sm font-bold text-primary-600 dark:text-secondary-400 uppercase tracking-wider mb-1">
                   {act.org}
                 </h3>
 
-                <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 leading-snug">
+                <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
                   {act.role}
                 </h4>
 
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5 sm:mb-6">
-                  {act.impact}
-                </p>
+                {act.impact && (
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5 sm:mb-6">
+                    {act.impact}
+                  </p>
+                )}
               </div>
 
               {/* Bottom Card Footer */}
