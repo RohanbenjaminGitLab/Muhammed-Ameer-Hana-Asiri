@@ -14,7 +14,7 @@ const educationList = [
   {
     degree: "Completed School level (A/L)",
     institution: "Ak/Addalaichenai National School ",
-    period: "2017 - 2029",
+    period: "2019",
     icon: faBook,
     color: "from-cyan-500 to-blue-500"
   },
