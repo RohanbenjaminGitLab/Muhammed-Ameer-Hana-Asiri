@@ -5,27 +5,24 @@ import { motion } from 'framer-motion';
 
 const educationList = [
   {
-    degree: "Higher National Diploma in Event Management (HNDEM Level 06)",
-    institution: "Sri Lanka Institute of Tourism and Hotel Management (SLITHM)",
-    period: "2021 - 2023",
+    degree: "Higher National Diploma in Event Management",
+    period: "2021 – 2025",
+    institution: "University College of Ratmalane",
     icon: faGraduationCap,
-    details: "Focused on advanced event operations, MICE tourism, sponsorship pitching, project planning, vendor logistics, risk assessment, and corporate hospitality management.",
-    color: "from-blue-500 to-indigo-500"
+    color: "from-cyan-500 to-blue-500"
   },
   {
-    degree: "G.C.E. Advanced Level",
-    institution: "Divisional High School",
-    period: "2018 - 2020",
+    degree: "Completed School level (A/L)",
+    institution: "Ak/Addalaichenai National School ",
+    period: "2017 - 2029",
     icon: faBook,
-    details: "Studied commerce stream, focusing on business studies, accounting, and economics. Served as senior editor of the school magazine committee and public speaking coordinator.",
-    color: "from-purple-500 to-pink-500"
+    color: "from-cyan-500 to-blue-500"
   },
   {
     degree: "G.C.E. Ordinary Level",
-    institution: "Divisional High School",
-    period: "2013 - 2017",
+    institution: "Ak/Arafa Vidyalaya Addalaichenai ",
+    period: "2016",
     icon: faSchool,
-    details: "Completed core secondary curriculum with distinctions in English and Tamil literature. Actively participated in junior leadership programs, youth club operations, and inter-school debating.",
     color: "from-cyan-500 to-blue-500"
   }
 ];

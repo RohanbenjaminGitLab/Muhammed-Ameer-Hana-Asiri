@@ -1,57 +1,53 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCertificate, faAward, faShieldHalved, faGlobe, faUserShield, faScaleBalanced, faHandshakeAngle } from '@fortawesome/free-solid-svg-icons';
+import { faCertificate, faAward, faShieldHalved, faGlobe, faUserShield, faScaleBalanced, faHandshakeAngle, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
 const qualifications = [
   {
-    title: "Professional Human Resource Management",
-    issuer: "CIPM / Chartered Institute of Personnel Management",
-    icon: faCertificate,
+    title: "Higher National Diploma in Event Management (University College)",
+    icon: faGraduationCap,
     color: "from-blue-500 to-indigo-500",
-    desc: "In-depth training on employee recruitment, retention strategies, performance appraisals, labor legislation, and personnel policy development."
   },
   {
-    title: "Youth Community Leadership Initiative",
-    issuer: "WHO, UNDP, UNV & National Youth Services Council (NYSC)",
+    title: "Professional Human Resource Management",
     icon: faGlobe,
     color: "from-purple-500 to-indigo-500",
-    desc: "Joint program covering community building, health promotion, project governance, and global volunteer mobilization under the United Nations framework."
   },
   {
-    title: "Strategic Management",
-    issuer: "Executive Development Academy",
+    title: "Youth Community Leadership Initiative (WHO, UNDP, UNV, NYSC)",
     icon: faAward,
     color: "from-pink-500 to-rose-500",
-    desc: "Focus on corporate strategy planning, operational auditing, risk management, SWOT execution, and setting corporate KPIs."
   },
   {
-    title: "Social Sensitive Reporting",
-    issuer: "Media Resource Centre",
+    title: "Strategic Management in Great Learning Academy",
     icon: faScaleBalanced,
     color: "from-cyan-500 to-blue-500",
-    desc: "Certification in news ethics, conflict-sensitive reporting, fair coverage of minorities, and reporting on disaster situations."
   },
   {
-    title: "Media Literacy",
-    issuer: "Sri Lanka Press Institute",
+    title: "Social sensitive Reporting (Sri Lanka College of Journalism)",
     icon: faShieldHalved,
     color: "from-emerald-500 to-teal-500",
-    desc: "Training in news verification, combatting digital misinformation, source validation, and security protocols in online journalism."
   },
   {
-    title: "Training on Values Curriculum",
-    issuer: "Values4All Organization",
+    title: "''MEDIA LITERACY'' Program in the American Center in Colombo",
     icon: faUserShield,
     color: "from-amber-500 to-orange-500",
-    desc: "Instructor workshop focused on designing moral education guides, teaching tolerance, and conflict management in schools."
+  },
+  {
+    title: "TOT Programme (Training on the Values Curriculum Asia Foundation)",
+    icon: faHandshakeAngle,
+    color: "from-indigo-500 to-purple-500",
   },
   {
     title: "Pre-Marital Counselling & Life Skills",
-    issuer: "Youth and Family Welfare Council",
     icon: faHandshakeAngle,
     color: "from-indigo-500 to-purple-500",
-    desc: "Training program addressing communication models, domestic dispute resolution, life planning strategies, and family advisory counseling."
+  },
+  {
+    title: "Professional Mentorship Program under Winspiration 5.0",
+    icon: faHandshakeAngle,
+    color: "from-indigo-500 to-purple-500",
   }
 ];
 
