@@ -1,9 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBriefcase,
-  faBullhorn,
-  faUsers,
   faGlobe,
   faPenNib,
   faUserGraduate,
@@ -87,10 +84,12 @@ function ExpCard({ exp, direction = 'left' }) {
       <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${exp.color} rounded-l-3xl`} />
 
       <div className="pl-3 sm:pl-4">
-        <span className="text-[10px] sm:text-xs font-bold text-primary-600 dark:text-white uppercase tracking-wide bg-primary-500/10 dark:bg-secondary-500/10 px-2.5 py-1 rounded-full">
-          {exp.period}
-        </span>
-        <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white mt-2">
+        {exp.period && (
+          <span className="text-[10px] sm:text-xs font-bold text-primary-600 dark:text-white uppercase tracking-wide bg-primary-500/10 dark:bg-secondary-500/10 px-2.5 py-1 rounded-full w-fit block">
+            {exp.period}
+          </span>
+        )}
+        <h3 className={`text-base sm:text-xl font-bold text-slate-900 dark:text-white ${exp.period ? 'mt-2' : ''}`}>
           {exp.role}
         </h3>
         <h4 className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-white mb-3">
