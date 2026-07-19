@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 text-center">
           <p>© {currentYear} Asri ibnu Ameer. All rights reserved.</p>
           <p className="font-medium">
-            Designed by <span className="text-primary-600 dark:text-secondary-400">Munaff Fathima Nafa</span>
+            Designed by <span className="text-primary-600 dark:text-secondary-400">Fathima Nafa binth Munaff</span>
           </p>
         </div>
 
