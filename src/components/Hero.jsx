@@ -135,7 +135,7 @@ export default function Hero() {
               onClick={() => handleScrollTo('experience')}
               className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold text-sm sm:text-base text-white bg-linear-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group min-h-[48px] flex-1 xs:flex-none"
             >
-              <FontAwesomeIcon icon={faBriefcase} className="group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+              <FontAwesomeIcon icon={faBriefcase} className="group-hover:translate-x-0.5 transition-transform shrink-0" />
               View Portfolio
             </button>
 
@@ -144,7 +144,7 @@ export default function Hero() {
               download
               className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold text-sm sm:text-base text-slate-700 dark:text-slate-200 glass-card-light dark:glass-card-dark hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-800 shadow-sm min-h-[48px] flex-1 xs:flex-none"
             >
-              <FontAwesomeIcon icon={faDownload} className="flex-shrink-0" />
+              <FontAwesomeIcon icon={faDownload} className="shrink-0" />
               Download CV
             </a>
 
@@ -152,7 +152,7 @@ export default function Hero() {
               onClick={() => handleScrollTo('contact')}
               className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-semibold text-sm sm:text-base text-primary-600 dark:text-secondary-400 glass-card-light dark:glass-card-dark border border-primary-500/30 dark:border-secondary-500/30 hover:bg-primary-50/50 dark:hover:bg-secondary-950/20 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 min-h-[48px] flex-1 xs:flex-none"
             >
-              <FontAwesomeIcon icon={faPaperPlane} className="flex-shrink-0" />
+              <FontAwesomeIcon icon={faPaperPlane} className="shrink-0" />
               Contact Me
             </button>
           </motion.div>
@@ -164,7 +164,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative w-[300px] h-[300px] xs:w-[340px] xs:h-[340px] sm:w-[420px] sm:h-[420px] lg:w-[440px] lg:h-[440px] xl:w-[480px] xl:h-[480px] max-w-full aspect-square"
+            className="relative w-75 h-75 xs:w-[340px] xs:h-[340px] sm:w-[420px] sm:h-[420px] lg:w-[440px] lg:h-[440px] xl:w-[480px] xl:h-[480px] max-w-full aspect-square"
           >
 
             {/* Visual background rings */}
@@ -174,7 +174,7 @@ export default function Hero() {
             {/* Profile Photo Wrapper */}
             <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white dark:border-slate-850 shadow-2xl glass-card-light dark:glass-card-dark">
               <img
-                src="/profile.png"
+                src="/profile1.jpeg"
                 alt="Asri ibnu Ameer — Portfolio Photo"
                 className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-500"
                 loading="eager"
